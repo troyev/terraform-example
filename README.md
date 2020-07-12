@@ -19,7 +19,7 @@ terraform apply
 
 terraform apply should create almost everything, but it won't be able to finish creating the windows deployment, because the windows support pods aren't running on the cluster yet.
 
-Starting the windows services is described here (the batch script below will implement what is described):
+Starting the windows support pods is described here (the batch script below will implement what is described):
 https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
 
 Ctrl-c out of the hanging terraform apply, and run
