@@ -24,8 +24,7 @@ terraform apply
 terraform apply should create almost everything, but it won't be able to finish creating the windows deployment, because the windows support pods aren't running on the cluster yet.
 
 Starting the windows support pods is described here (the batch script below will implement what is described):
-https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
-
+https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html 
 https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#how-can-i-use-windows-workers
 
 
