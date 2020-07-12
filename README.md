@@ -6,7 +6,7 @@ Before beginning, become familiar with the steps described here to deploy a Linu
 https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster
 https://learn.hashicorp.com/terraform/kubernetes/deploy-nginx-kubernetes
 
-It needs a little manual intervention, but hopefully can be streamlined in the future.
+Deploying a mixed cluster requires a little manual intervention, but hopefully can be streamlined in the future.
 
 packages you need from chocolatey:
 
