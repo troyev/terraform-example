@@ -4,6 +4,7 @@ This repo holds an example of provisioning an eks cluster with terraform, using 
 
 Before beginning, become familiar with the steps described here to deploy a Linux-only kubernetes cluster with terraform.
 https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster
+
 https://learn.hashicorp.com/terraform/kubernetes/deploy-nginx-kubernetes
 
 Deploying a mixed cluster requires a little manual intervention, but hopefully can be streamlined in the future.
@@ -25,6 +26,7 @@ terraform apply should create almost everything, but it won't be able to finish 
 
 Starting the windows support pods is described here (the batch script below will implement what is described):
 https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
+
 https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#how-can-i-use-windows-workers
 
 
