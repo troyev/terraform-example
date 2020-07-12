@@ -2,6 +2,9 @@
 
 This repo holds an example of provisioning an eks cluster with terraform, using windows machine. It will create an eks cluster, and deploy both windows and linux webserver containers to the same cluster.
 
+Before beginning, become familiar with the steps described here to deploy a Linux-only cluster with terraform.
+https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster
+
 It needs a little manual intervention, but hopefully can be streamlined in the future.
 
 packages you need from chocolatey:
