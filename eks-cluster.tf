@@ -16,7 +16,7 @@ module "eks" {
   worker_groups = [
     {
       name                          = "worker-group-1"
-      instance_type                 = "t2.micro"
+      instance_type                 = "t2.small"
       additional_userdata           = "echo foo bar"
       platform                      = "linux"
       asg_desired_capacity          = 2
@@ -24,11 +24,11 @@ module "eks" {
     },
     {
       name                          = "worker-group-win"
-      instance_type                 = "t2.micro"
+      instance_type                 = "t2.large"
       additional_userdata           = "echo foo bar"
       platform                      = "windows"
-      asg_desired_capacity          = 2
-      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
+      asg_desired_capacity          = 3
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
     }
   ]
 }

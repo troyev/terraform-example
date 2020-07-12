@@ -72,8 +72,7 @@ output "lb_ip" {
   value = kubernetes_service.nginx.load_balancer_ingress[0].hostname
 }
 
-/*
-resource "kubernetes_deployment" "win-dep" {
+resource "kubernetes_deployment" "win" {
   metadata {
     name = "win-example"
     labels = {
@@ -95,9 +94,6 @@ resource "kubernetes_deployment" "win-dep" {
         }
       }
       spec {
-        node_selector = {
-          os = "windows"
-        }
         container {
           image = "mcr.microsoft.com/windows/servercore:1809"
           name  = "example"
@@ -107,19 +103,30 @@ resource "kubernetes_deployment" "win-dep" {
             container_port = 80
           }
 
-          resources {
-            limits {
-              cpu    = "0.5"
-              memory = "100Mi"
-            }
-            requests {
-              cpu    = "250m"
-              memory = "50Mi"
-            }
-          }
+        }
+        node_selector = {
+              "kubernetes.io/os" = "windows"
         }
       }
     }
   }
 }
-*/
+resource "kubernetes_service" "win" {
+  metadata {
+    name = "win-example"
+  }
+  spec {
+    selector = {
+      App = kubernetes_deployment.win.spec.0.template.0.metadata[0].labels.App
+    }
+    port {
+      port        = 80
+      target_port = 80
+    }
+
+    type = "LoadBalancer"
+  }
+}
+output "lb_iptwo" {
+  value = kubernetes_service.win.load_balancer_ingress[0].hostname
+}
