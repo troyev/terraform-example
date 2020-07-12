@@ -2,8 +2,9 @@
 
 This repo holds an example of provisioning an eks cluster with terraform, using windows machine. It will create an eks cluster, and deploy both windows and linux webserver containers to the same cluster.
 
-Before beginning, become familiar with the steps described here to deploy a Linux-only cluster with terraform.
+Before beginning, become familiar with the steps described here to deploy a Linux-only kubernetes cluster with terraform.
 https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster
+https://learn.hashicorp.com/terraform/kubernetes/deploy-nginx-kubernetes
 
 It needs a little manual intervention, but hopefully can be streamlined in the future.
 
@@ -24,6 +25,8 @@ terraform apply should create almost everything, but it won't be able to finish 
 
 Starting the windows support pods is described here (the batch script below will implement what is described):
 https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
+https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#how-can-i-use-windows-workers
+
 
 Ctrl-c out of the hanging terraform apply, and run
 
@@ -98,11 +101,4 @@ kube-system   vpc-admission-webhook-deployment-579c976c68-9t7rv   1/1     Runnin
 kube-system   vpc-resource-controller-764c979649-49xhx            1/1     Running   0          34m
 ```
 
-After a few minutes, you should be able to access both webservers using the EXTERNAL-IP of the services.
-
-helpful links:
-
-https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#how-can-i-use-windows-workers
-
-https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster
-https://learn.hashicorp.com/terraform/kubernetes/deploy-nginx-kubernetes#schedule-a-service
+After a few minutes, you should be able to access both webservers using the EXTERNAL-IP of the services in your web browser.
