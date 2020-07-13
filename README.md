@@ -49,7 +49,7 @@ enable_windows_commands.bat
 That should kick off the pods on the cluster necessary for running windows pods. The vpc-admission-webhook and vpc-resource controller pods need to be restarted with a command similar to this:
 
 ```
-kubectl --namespace kube-control delete pod vpc-admission-webhook-deployment-579c976c68-9t7rv vpc-resource-controller-764c979649-49xhx
+kubectl --namespace kube-system delete pod vpc-admission-webhook-deployment-579c976c68-9t7rv vpc-resource-controller-764c979649-49xhx
 ```
 
 Needing to restart was suggested here:
